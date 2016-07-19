@@ -9,14 +9,14 @@ namespace WrapperExampleTests
     [TestClass]
     public class ProcessorTests
     {
-        private VirtualEnhancedSeatMapClientWrapper clientWrapper;
+        private EnhancedSeatMapClientWrapperStub clientWrapper;
         private Processor processor;
 
         [SetUp]
         public void SetUp()
         {
             EnhancedSeatMapRS seatMapRs = new EnhancedSeatMapRS();
-            var clientWrapper = new VirtualEnhancedSeatMapClientWrapper(seatMapRs);
+            var clientWrapper = new EnhancedSeatMapClientWrapperStub(seatMapRs);
             processor = new Processor(clientWrapper);
         }
 
@@ -29,12 +29,12 @@ namespace WrapperExampleTests
         }
     }
 
-    public class VirtualEnhancedSeatMapClientWrapper : IEnhancedSeatMapClient
+    public class EnhancedSeatMapClientWrapperStub : IEnhancedSeatMapClient
     {
         private readonly EnhancedSeatMapRS response;
         public bool EnhancedSeatMapInvoked;
 
-        public VirtualEnhancedSeatMapClientWrapper(EnhancedSeatMapRS response)
+        public EnhancedSeatMapClientWrapperStub(EnhancedSeatMapRS response)
         {
             this.response = response;
         }
